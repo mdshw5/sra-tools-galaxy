@@ -1,5 +1,5 @@
 The Galaxy tool wrappers contained in this tool shed repository rely on software developed by
-the NCBI Sequence Read Archive: http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software.
+the NCBI: http://github.com/ncbi/sra-tools.
 
 # INSTALLATION
 
