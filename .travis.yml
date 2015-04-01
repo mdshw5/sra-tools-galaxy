@@ -15,6 +15,6 @@ sudo: required
 
 script:
  - wget -O- http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.4.5-2/sratoolkit.2.4.5-2-ubuntu64.tar.gz | tar -xvz
- - sudo cp -r sratoolkit.2.4.5-2-ubuntu64/bin/* /usr/bin/local
+ - sudo cp -r sratoolkit.2.4.5-2-ubuntu64/bin/* /usr/local/bin
  - sudo apt-get install samtools
  - wget -O- https://raw.github.com/galaxyproject/planemo/master/scripts/travis_test.sh | /bin/bash -x
