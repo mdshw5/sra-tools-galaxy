@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mdshw5/sra-tools-galaxy.svg?branch=master)](https://travis-ci.org/mdshw5/sra-tools-galaxy)
+
 The Galaxy tool wrappers contained in this tool shed repository rely on software developed by
 the NCBI: http://github.com/ncbi/sra-tools.
 
