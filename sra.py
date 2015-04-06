@@ -41,3 +41,5 @@ class Sra(Binary):
             return dataset.peek
         except:
             return 'Binary sra file (%s)' % (nice_size(dataset.get_size()))
+            
+Binary.register_sniffable_binary_format('sra', 'sra', Sra)
