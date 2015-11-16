@@ -1,0 +1,34 @@
+
+# This is a special configuration file to run tests on Travis-CI via
+# GitHub notifications when changes are committed.
+#
+# See http://travis-ci.org/ for details
+
+# This file is heavily inspired by Peter Cock's efforts. See more details at
+# http://blastedbio.blogspot.com/2013/09/using-travis-ci-for-testing-galaxy-tools.html
+
+# We need Python 2.6 or 2.7 to run Galaxy but many Galaxy tools also need Java
+# to run the simplest way to get that installed is to just start with "java".
+# (which will still have a system python installed).
+language: java
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - python-virtualenv
+    - samtools
+
+before_install:
+ - virtualenv planemo-venv
+ - . planemo-venv/bin/activate
+ - pip install planemo
+ - planemo travis_before_install
+ - . ${TRAVIS_BUILD_DIR}/.travis/env.sh # source environment created by planemo
+install:
+ - git clone https://github.com/mdshw5/sra-tools-galaxy.git
+ - planemo dependency_script -r sra-tools-galaxy
+ - . env.sh
+ - bash dep_install.sh
+script:
+ - planemo test --install_galaxy ${TRAVIS_BUILD_DIR}
