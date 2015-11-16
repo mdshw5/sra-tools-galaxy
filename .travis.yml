@@ -18,6 +18,8 @@ addons:
     packages:
     - python-virtualenv
     - samtools
+env:
+ - DOWNLOAD_CACHE=$HOME/download_cache
 
 before_install:
  - virtualenv planemo-venv
@@ -26,6 +28,7 @@ before_install:
  - pip install planemo
  - planemo travis_before_install
  - . ${TRAVIS_BUILD_DIR}/.travis/env.sh # source environment created by planemo
+ - mkdir $DOWNLOAD_CACHE
 install:
  - git clone https://github.com/mdshw5/sra-tools-galaxy.git
  - planemo dependency_script -r sra-tools-galaxy
